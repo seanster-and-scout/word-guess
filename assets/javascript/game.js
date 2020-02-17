@@ -5,7 +5,8 @@ $(document).ready(function() {
   let letterCounter = currentWord.length;
   let underscore = [];
   let currentWordArray = currentWord.split("");
-  let guesses = 0;
+  let guesses = 7;
+  let guessCheck = false;
   let wordChecker = $("#underscore").html(underscore);
 
   for (let i = 0; i < currentWord.length; i++) {
@@ -22,17 +23,30 @@ $(document).ready(function() {
         underscore[i] = currentWordArray[i];
         $("#underscore").html(underscore);
         wordChecker = $("#underscore").html(underscore);
+        guessCheck = true;
       }
-      guesses++;
+    }
+    if (guessCheck == false && guesses > 0) {
+      guesses--;
     }
 
+    if (hasWon(wordChecker) == true) {
+      alert("Congrats you have won the Game. Would you like to play again?");
+    }
+    guessCheck = false;
+
+    $("#Guesses").html("Guesses Remaining: " + guesses);
     console.log(currentWordArray);
     console.log(code);
     console.log(letter);
   });
 
   function hasWon(wordChecker) {
-    if (wordChecker.find("_") == null && guesses) {
+    if (wordChecker.find("_") == null && guesses > 0) {
+      hasWon = true;
+      return true;
+    } else {
+      return false;
     }
   }
 });
