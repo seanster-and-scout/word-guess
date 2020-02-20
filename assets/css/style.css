@@ -54,3 +54,9 @@
   margin-top: 10vh;
   background-color: gray;
 }
+
+img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}

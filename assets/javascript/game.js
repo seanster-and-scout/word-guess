@@ -1,19 +1,13 @@
 $(document).ready(function() {
   const dictionary = ["HeyJude", "ComeTogether", "SargentPepper"];
   let randomNumber;
-  //   let video1 = $("iframe").attr(
-  //     "src",
-  //     "https://www.youtube.com/watch?v=7qMls5yxP1w"
-  //   );
-  //   let video2 = $("iframe").attr(
-  //     "src",
-  //     "https://www.youtube.com/watch?v=oolpPmuK2I8"
-  //   );
-  //   let video3 = $("iframe").attr(
-  //     "src",
-  //     "https://www.youtube.com/watch?v=naoknj1ebqI"
-  //   );
-  //   const videos = [video1, video2, video3];
+
+  const imgs = [
+    "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "https://images.pexels.com/photos/586415/pexels-photo-586415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://images.pexels.com/photos/6966/abstract-music-rock-bw.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  ];
+  let currentImg;
   let currentWord;
   let underscore;
   let currentWordArray;
@@ -31,9 +25,14 @@ $(document).ready(function() {
     initializeArray(currentWord);
   }
 
-  //   function getRandomSong() {
-  //     return videos[randomNumber];
-  //   }
+  function setImage() {
+    randomNumber = Math.floor(Math.random() * dictionary.length);
+    currentImg = imgs[randomNumber];
+  }
+
+  function getImage() {
+    return $("img").attr("src", imgs[randomNumber]);
+  }
 
   function initializeArray(currentWord) {
     for (let i = 0; i < currentWord.length; i++) {
@@ -60,7 +59,8 @@ $(document).ready(function() {
 
   function newGame() {
     getRandomWord();
-    //getRandomSong();
+    setImage();
+    getImage();
     setWord();
     guesses = 7;
     guessCheck = false;
