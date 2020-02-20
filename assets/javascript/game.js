@@ -1,7 +1,6 @@
 $(document).ready(function() {
   const dictionary = ["HeyJude", "ComeTogether", "SargentPepper"];
   let randomNumber;
-
   const imgs = [
     "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     "https://images.pexels.com/photos/586415/pexels-photo-586415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
